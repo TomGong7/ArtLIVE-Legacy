@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtLIVE · 画智体 · 个人中心</title>
+    
+    <link rel="stylesheet" href="../Main/ArtStudio.css" />
+    <link rel="stylesheet" href="Me.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="page-shell">
+      <nav class="topbar glass-panel" id="topbar"></nav>
+
+      <div class="me-layout">
+        <aside class="me-sidebar glass-panel">
+          <div class="me-avatar-section">
+            <div class="me-avatar">墨</div>
+            <h2 class="title-sm">墨客</h2>
+            <p class="me-bio">国风艺术爱好者</p>
+          </div>
+          <div class="me-stats">
+            <div class="stat-item">
+              <span class="stat-num" id="collection-count">0</span>
+              <span class="stat-label">收藏</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" id="work-count">0</span>
+              <span class="stat-label">作品</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num" id="post-count">0</span>
+              <span class="stat-label">帖子</span>
+            </div>
+          </div>
+          <nav class="me-nav">
+            <button class="me-nav-item active" data-section="collections">我的收藏</button>
+            <button class="me-nav-item" data-section="works">我的作品</button>
+            <button class="me-nav-item" data-section="posts">我的帖子</button>
+            <button class="me-nav-item" data-section="liked">我的点赞</button>
+            <button class="me-nav-item" data-section="history">历史记录</button>
+            <button class="me-nav-item" data-section="settings">账号设置</button>
+          </nav>
+        </aside>
+
+        <section class="me-content glass-panel" id="me-content">
+          <div class="me-section" id="section-collections">
+            <h3 class="title-sm">我的收藏</h3>
+            <div class="me-collections-grid" id="collections-grid">
+              <div class="me-empty">
+                <p>还没有收藏任何作品</p>
+                <span>去画廊发现你喜欢的作品吧</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="me-section hidden" id="section-works">
+            <h3 class="title-sm">我的作品</h3>
+            <div class="me-works-grid" id="me-works-grid">
+              <div class="me-empty">
+                <p>还没有保存作品</p>
+                <span>去工坊开始创作吧</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="me-section hidden" id="section-posts">
+            <h3 class="title-sm">我的帖子</h3>
+            <div class="me-posts-list" id="me-posts-list">
+              <div class="me-empty">
+                <p>还没有发布帖子</p>
+                <span>去社区分享你的想法吧</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="me-section hidden" id="section-liked">
+            <h3 class="title-sm">我的点赞</h3>
+            <div class="me-posts-list" id="me-liked-list">
+              <div class="me-empty">
+                <p>还没有点赞任何帖子</p>
+                <span>去社区发现精彩内容吧</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="me-section hidden" id="section-history">
+            <div class="me-section-header">
+              <h3 class="title-sm">历史记录</h3>
+              <button class="btn btn-sm btn-secondary" id="clear-history">清空记录</button>
+            </div>
+            <div class="me-posts-list" id="me-history-list">
+              <div class="me-empty">
+                <p>还没有浏览记录</p>
+                <span>去画廊和工坊探索吧</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="me-section hidden" id="section-settings">
+            <h3 class="title-sm">账号设置</h3>
+            <div class="settings-form">
+              <div class="form-group">
+                <label class="form-label">头像字符</label>
+                <input class="input" type="text" value="墨" id="settings-avatar" maxlength="2" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">用户名</label>
+                <input class="input" type="text" value="墨客" id="settings-name" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">简介</label>
+                <input class="input" type="text" value="国风艺术爱好者" id="settings-bio" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">邮箱</label>
+                <input class="input" type="email" value="moke@artstudio.com" id="settings-email" />
+              </div>
+              <button class="btn btn-primary btn-full" id="save-settings">保存设置</button>
+              <hr class="settings-divider" />
+              <div class="form-group">
+                <label class="form-label">密码修改</label>
+                <input class="input" type="password" placeholder="输入新密码" id="settings-password" />
+              </div>
+              <button class="btn btn-full" id="change-password">修改密码</button>
+              <hr class="settings-divider" />
+              <div class="settings-actions">
+                <button class="btn btn-danger btn-full" id="logout-btn">退出登录</button>
+                <button class="btn btn-outline btn-full" id="switch-account-btn">切换账号</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../Main/ArtStudio.js"></script>
+    <script src="Me.js"></script>
+
+    <div class="me-toast-container" id="me-toast"></div>
+    <div class="me-confirm-overlay hidden" id="me-confirm">
+      <div class="me-confirm-box glass-panel">
+        <p id="me-confirm-msg"></p>
+        <div class="me-confirm-actions">
+          <button class="btn" id="me-confirm-cancel">取消</button>
+          <button class="btn btn-danger" id="me-confirm-ok">确认</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

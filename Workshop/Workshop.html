@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtLIVE · 画智体 · 工坊</title>
+    
+    <link rel="stylesheet" href="../Main/ArtStudio.css" />
+    <link rel="stylesheet" href="Workshop.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="page-shell" data-active="workshop">
+      <nav class="topbar glass-panel" id="topbar"></nav>
+
+      <header class="page-header glass-panel">
+        <div class="page-header-text">
+          <h1 class="title-xl">创作工坊</h1>
+          <p class="subtitle">输入文字或上传图片，创作出自己的国画、音乐或视频</p>
+        </div>
+      </header>
+
+      <div class="workshop-layout">
+        <section class="workshop-input-panel glass-panel">
+          <div class="input-selector">
+            <span class="input-label">输入类型</span>
+            <div class="input-tabs">
+            <button class="input-tab active" data-tab="text">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+              <span>文字</span>
+            </button>
+            <button class="input-tab" data-tab="poetry">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+              <span>诗词</span>
+            </button>
+            <button class="input-tab" data-tab="image">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>图像</span>
+            </button>
+            </div>
+          </div>
+
+          <div class="input-content" id="input-content">
+            <div class="input-panel text-panel active" id="text-panel">
+              <textarea class="prompt-textarea" id="prompt-input" placeholder="描述你想要的创作内容，例如：一幅秋日山水画，远山如黛，近水含烟，有孤舟蓑笠翁独钓..." rows="5"></textarea>
+              <div class="prompt-tags" id="prompt-tags">
+                <span class="prompt-tag-label">推荐：</span>
+                <button class="prompt-tag" data-prompt="水墨山水，云雾缭绕，松石点缀">水墨山水</button>
+                <button class="prompt-tag" data-prompt="工笔花鸟，牡丹盛开，蝴蝶翩跹">工笔花鸟</button>
+                <button class="prompt-tag" data-prompt="写意人物，竹林七贤，纵情山水">写意人物</button>
+                <button class="prompt-tag" data-prompt="青绿山水，千里江山，层峦叠嶂">青绿山水</button>
+              </div>
+            </div>
+
+            <div class="input-panel poetry-panel" id="poetry-panel">
+              <textarea class="prompt-textarea" id="poetry-input" placeholder="输入或粘贴诗词，例如：大漠孤烟直，长河落日圆..." rows="5"></textarea>
+              <div class="prompt-tags" id="poetry-tags">
+                <span class="prompt-tag-label">推荐：</span>
+                <button class="prompt-tag" data-prompt="大漠孤烟直，长河落日圆">大漠孤烟</button>
+                <button class="prompt-tag" data-prompt="床前明月光，疑是地上霜">静夜思</button>
+                <button class="prompt-tag" data-prompt="春风又绿江南岸，明月何时照我还">泊船瓜洲</button>
+                <button class="prompt-tag" data-prompt="千山鸟飞绝，万径人踪灭">江雪</button>
+              </div>
+            </div>
+
+            <div class="input-panel image-panel" id="image-panel">
+              <div class="upload-zone" id="upload-zone">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <p>上传图像作为参考</p>
+                <span>支持 JPG、PNG 格式</span>
+                <input type="file" id="image-upload" accept="image/*" hidden />
+              </div>
+              <div class="image-preview" id="image-preview" hidden>
+                <img id="preview-img" src="" alt="预览" />
+                <button class="image-remove" id="image-remove">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <textarea class="prompt-textarea" id="image-prompt" placeholder="补充描述（可选）：基于此图像，生成一幅..." rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="output-selector">
+            <span class="output-label">创作类型</span>
+            <div class="output-types">
+              <button class="output-type active" data-output="poetry">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h8"/><path d="M8 11h6"/></svg>
+                <span>诗词</span>
+              </button>
+              <button class="output-type" data-output="music">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>音乐</span>
+              </button>
+              <button class="output-type" data-output="video">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <span>视频</span>
+              </button>
+            </div>
+          </div>
+
+          <button class="generate-btn" id="generate-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>开始创作</span>
+          </button>
+          <p class="generate-disclaimer">提示：创作内容由AI生成，可能会出现一些错误。</p>
+        </section>
+
+        <section class="workshop-result-panel glass-panel" id="result-panel">
+          <div class="result-header">
+            <h3 class="title-sm">已完成的作品</h3>
+          </div>
+
+          <div class="result-empty" id="result-empty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <p>暂无作品</p>
+          </div>
+
+          <div class="result-grid" id="result-grid" hidden>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="../Main/ArtStudio.js"></script>
+    <script src="Workshop.js"></script>
+  </body>
+</html>

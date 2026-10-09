@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtLIVE · 画智体 · 社区</title>
+    
+    <link rel="stylesheet" href="../Main/ArtStudio.css" />
+    <link rel="stylesheet" href="Community.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="page-shell" data-active="community">
+      <nav class="topbar glass-panel" id="topbar"></nav>
+
+      <div class="feed-header">
+        <div class="feed-search glass-panel">
+          <span class="feed-search-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <input
+            type="text"
+            class="feed-search-input"
+            id="search-input"
+            placeholder="搜索国风灵感…"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+
+      <nav class="feed-tabs" id="category-tabs">
+        <button class="feed-tab active" data-category="all">推荐</button>
+        <button class="feed-tab" data-category="山水画">山水</button>
+        <button class="feed-tab" data-category="花鸟画">花鸟</button>
+        <button class="feed-tab" data-category="书法">书法</button>
+        <button class="feed-tab" data-category="诗词">诗词</button>
+        <button class="feed-tab" data-category="工笔">工笔</button>
+        <button class="feed-tab" data-category="水墨">水墨</button>
+        <button class="feed-tab" data-category="篆刻">篆刻</button>
+      </nav>
+
+      <div class="feed-waterfall" id="waterfall">
+        <div class="feed-col" id="col-0"></div>
+        <div class="feed-col" id="col-1"></div>
+        <div class="feed-col" id="col-2"></div>
+        <div class="feed-col" id="col-3"></div>
+      </div>
+
+      <div class="feed-empty hidden" id="feed-empty">
+        <p>没有找到相关内容</p>
+        <span>试试其他关键词吧</span>
+      </div>
+    </main>
+
+    <button class="feed-fab" id="publish-fab" title="发布笔记">＋</button>
+
+    <div class="feed-overlay hidden" id="publish-overlay">
+      <div class="feed-publish glass-panel">
+        <div class="publish-header">
+          <h3 class="publish-title">发布笔记</h3>
+          <button class="publish-close-btn" id="publish-close">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+
+        <div class="publish-body">
+          <div class="publish-section">
+            <label class="publish-label">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              封面图片
+            </label>
+            <div class="feed-cover-picker" id="cover-picker">
+              <button class="feed-cover-option selected" data-cover="landscape">山</button>
+              <button class="feed-cover-option" data-cover="mountain">峰</button>
+              <button class="feed-cover-option" data-cover="flower">花</button>
+              <button class="feed-cover-option" data-cover="bamboo">竹</button>
+              <button class="feed-cover-option" data-cover="brush">墨</button>
+              <button class="feed-cover-option" data-cover="wave">水</button>
+              <button class="feed-cover-option" data-cover="bird">鸟</button>
+              <button class="feed-cover-option" data-cover="tower">阁</button>
+            </div>
+          </div>
+
+          <div class="publish-section">
+            <label class="publish-label" for="publish-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+              标题
+            </label>
+            <input class="publish-input" type="text" id="publish-title" placeholder="给你的笔记起个标题…" />
+          </div>
+
+          <div class="publish-section">
+            <label class="publish-label" for="publish-body">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              内容
+            </label>
+            <textarea class="publish-textarea" id="publish-body" rows="6" placeholder="写下你想分享的艺术心得、创作感悟…"></textarea>
+          </div>
+
+          <div class="publish-section">
+            <label class="publish-label" for="publish-category">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+              分类
+            </label>
+            <select class="publish-select" id="publish-category">
+              <option value="山水画">山水画</option>
+              <option value="花鸟画">花鸟画</option>
+              <option value="书法">书法</option>
+              <option value="诗词">诗词</option>
+              <option value="工笔">工笔</option>
+              <option value="水墨">水墨</option>
+              <option value="篆刻">篆刻</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="publish-footer">
+          <button class="btn btn-primary btn-lg btn-full" id="submit-publish">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            发布笔记
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="feed-overlay hidden" id="detail-overlay">
+      <div class="feed-detail">
+        <div class="feed-detail-header">
+          <button class="feed-detail-close" id="detail-close">✕</button>
+        </div>
+        <div class="feed-detail-scroll">
+        <div class="feed-detail-cover" id="detail-cover"></div>
+        <div class="feed-detail-body">
+          <div class="feed-detail-author">
+            <div class="feed-detail-avatar" id="detail-avatar"></div>
+            <div>
+              <div class="feed-detail-name" id="detail-author"></div>
+              <div class="feed-detail-time" id="detail-time"></div>
+            </div>
+          </div>
+          <h2 class="feed-detail-title" id="detail-title"></h2>
+          <p class="feed-detail-text" id="detail-body"></p>
+          <div class="feed-detail-actions">
+            <button class="feed-action-btn" id="detail-like">
+              <span id="detail-like-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+              <span id="detail-like-count">0</span>
+            </button>
+            <button class="feed-action-btn" id="detail-collect">
+              <span id="detail-collect-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span id="detail-collect-count">0</span>
+            </button>
+            <button class="feed-action-btn">
+              <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+              <span id="detail-comment-count">0</span>
+            </button>
+            <button class="feed-action-btn" id="quote-btn">
+              <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span>
+              <span>引用</span>
+            </button>
+          </div>
+          <div class="feed-comment-input">
+            <textarea id="detail-comment-input" placeholder="写下你的评论…"></textarea>
+            <div class="feed-comment-actions">
+              <button class="btn-sm" id="ai-comment-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span>智能评论</span>
+              </button>
+              <button class="btn-sm btn-primary" id="detail-comment-submit">发表评论</button>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../Main/ArtStudio.js"></script>
+    <script src="Community.js"></script>
+  </body>
+</html>

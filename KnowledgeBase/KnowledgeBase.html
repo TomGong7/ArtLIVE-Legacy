@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtLIVE · 画智体 · 知识库</title>
+    
+    <link rel="stylesheet" href="../Main/ArtStudio.css" />
+    <link rel="stylesheet" href="KnowledgeBase.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="page-shell" data-active="knowledge">
+      <nav class="topbar glass-panel" id="topbar"></nav>
+
+      <header class="page-header glass-panel">
+        <div class="page-header-text">
+          <h1 class="title-xl">国画、诗词、篆刻，从这里入门</h1>
+          <p class="subtitle">分类浏览，按自己的兴趣深入</p>
+        </div>
+        <div class="search-box">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <input type="text" id="kb-search" placeholder="搜索知识条目…" />
+        </div>
+      </header>
+
+      <div class="kb-layout">
+        <aside class="kb-sidebar glass-panel">
+          <h3 class="title-sm">分类</h3>
+          <ul class="kb-categories" id="kb-categories">
+            <li><button class="kb-cat active" data-cat="all">全部</button></li>
+            <li><button class="kb-cat" data-cat="painting">国画技法</button></li>
+            <li><button class="kb-cat" data-cat="poetry">诗词赏析</button></li>
+            <li><button class="kb-cat" data-cat="history">艺术史话</button></li>
+            <li><button class="kb-cat" data-cat="tools">文房四宝</button></li>
+            <li><button class="kb-cat" data-cat="theory">美学理论</button></li>
+          </ul>
+        </aside>
+
+        <section class="kb-main">
+          <section class="kb-data-viz glass-panel" id="kb-data-viz">
+            <h3 class="title-sm">知识分布</h3>
+            <div class="kb-viz-charts" id="kb-viz-charts"></div>
+          </section>
+          <div class="kb-grid" id="kb-grid" aria-label="知识条目列表">
+          </div>
+          <div class="kb-empty hidden" id="kb-empty">
+            <p>暂未找到匹配的知识条目</p>
+            <span>试试其他关键词或分类</span>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="kb-detail-overlay hidden" id="kb-detail">
+      <div class="kb-detail-content glass-panel">
+        <button class="kb-detail-close overlay-close" id="kb-detail-close">✕</button>
+        <div class="kb-detail-header">
+          <span class="kb-detail-icon" id="kb-detail-icon"></span>
+          <div>
+            <p class="kb-detail-cat" id="kb-detail-cat"></p>
+            <h2 id="kb-detail-title"></h2>
+          </div>
+        </div>
+        <div class="kb-detail-body" id="kb-detail-body"></div>
+        <div class="kb-detail-related" id="kb-detail-related"></div>
+      </div>
+    </div>
+
+    <script src="../Main/ArtStudio.js"></script>
+    <script src="KnowledgeBase.js"></script>
+  </body>
+</html>

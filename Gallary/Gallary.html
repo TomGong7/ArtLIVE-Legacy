@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtLIVE · 画智体 · 画廊</title>
+    
+    <link rel="stylesheet" href="../Main/ArtStudio.css" />
+    <link rel="stylesheet" href="Gallary.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+
+    <main class="page-shell" data-active="gallery">
+      <nav class="topbar glass-panel" id="topbar"></nav>
+
+      <header class="page-header glass-panel">
+        <div class="page-header-text">
+          <h1 class="title-xl">笔墨之间，自有天地</h1>
+          <p class="subtitle">从唐宋到当代，选你喜欢的作品</p>
+        </div>
+        <div class="search-box">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <input type="text" id="gallery-search" placeholder="搜索作品、作者或风格…" />
+        </div>
+      </header>
+
+      <section class="daily-recommend glass-panel" id="daily-recommend">
+        <div class="daily-recommend-header">
+          <h3 class="title-sm">每日推荐</h3>
+          <span class="daily-recommend-date" id="daily-date"></span>
+        </div>
+        <div class="daily-recommend-card" id="daily-card"></div>
+      </section>
+
+      <div class="gallery-filters flex-row">
+        <button class="btn-sm filter-chip active" data-filter="all">全部</button>
+        <button class="btn-sm filter-chip" data-filter="landscape">山水</button>
+        <button class="btn-sm filter-chip" data-filter="figure">人物</button>
+        <button class="btn-sm filter-chip" data-filter="flower">花鸟</button>
+        <button class="btn-sm filter-chip" data-filter="calligraphy">书法</button>
+        <button class="btn-sm filter-chip" data-filter="modern">新水墨</button>
+      </div>
+
+      <section class="gallery-grid" id="gallery-grid" aria-label="作品展示">
+      </section>
+
+      <div class="gallery-empty hidden" id="gallery-empty">
+        <p>暂未找到匹配的作品</p>
+        <span>试试其他关键词或分类</span>
+      </div>
+
+      <div class="guide-fab" id="guide-fab" title="智能导览">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <circle cx="12" cy="12" r="10"/>
+          <g class="guide-icon-i">
+            <circle cx="12" cy="8" r="1.5" fill="currentColor" stroke="none"/>
+            <line x1="12" y1="11.5" x2="12" y2="16.5"/>
+          </g>
+          <g class="guide-icon-x">
+            <line x1="8" y1="8" x2="16" y2="16"/>
+            <line x1="16" y1="8" x2="8" y2="16"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="guide-panel hidden" id="guide-panel">
+        <div class="guide-panel-header">
+          <h4 class="title-sm">智能导览</h4>
+        </div>
+        <div class="guide-panel-body" id="guide-panel-body">
+          <div class="guide-panel-content" id="guide-panel-content">
+            <div class="guide-panel-placeholder">
+              <p>将鼠标悬停在作品上</p>
+              <span>即可查看作品简介</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="../Main/ArtStudio.js"></script>
+    <script src="Gallary.js"></script>
+  </body>
+</html>

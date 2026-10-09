@@ -1,0 +1,251 @@
+/* Override page-shell constraints for detail page */
+.page-shell:has(.guide-layout) {
+  max-width: 1400px;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.guide-display {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s ease;
+}
+
+.guide-image-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--glass-border);
+  transition: all 0.3s ease;
+}
+
+.guide-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  opacity: 0.85;
+}
+
+.guide-placeholder.landscape {
+  background: linear-gradient(135deg, #d4e5d0, #b8d4b5);
+}
+
+.guide-placeholder.figure {
+  background: linear-gradient(135deg, #e8dcc8, #d6c5a8);
+}
+
+.guide-placeholder.flower {
+  background: linear-gradient(135deg, #f0dfe0, #e4bfc0);
+}
+
+.guide-placeholder.calligraphy {
+  background: linear-gradient(135deg, #e8e5db, #d2cebf);
+}
+
+.guide-placeholder.modern {
+  background: linear-gradient(135deg, #d0dce8, #b4c4d6);
+}
+
+.guide-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.guide-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-soft);
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.guide-action-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  border-color: var(--line-strong);
+}
+
+.guide-action-btn.collected {
+  color: #c8a000;
+}
+
+.guide-action-btn.collected svg {
+  fill: #c8a000;
+}
+
+.guide-info {
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.guide-info-header {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-info-header .title-xl {
+  margin-bottom: 6px;
+}
+
+.guide-author {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+}
+
+.guide-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: var(--accent-strong);
+}
+
+.guide-section {
+  margin-bottom: 20px;
+}
+
+.guide-section .title-sm {
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.guide-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.guide-ai-content {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.guide-ai-content p {
+  margin: 0 0 10px;
+}
+
+.guide-ai-content p:last-child {
+  margin-bottom: 0;
+}
+
+.guide-ai-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
+.guide-ai-loading svg {
+  animation: spin 1s linear infinite;
+}
+
+.guide-ai-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text-soft);
+}
+
+.guide-voice-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-soft);
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.guide-voice-btn:hover {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  border-color: var(--line-strong);
+}
+
+.guide-voice-btn.speaking {
+  color: #c8a000;
+  border-color: #c8a000;
+}
+
+.guide-voice-btn.hidden {
+  display: none;
+}
+
+.guide-ai-placeholder svg {
+  opacity: 0.5;
+}
+
+.guide-ai-placeholder p {
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.guide-start-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  border: 1px solid var(--accent-strong);
+  border-radius: var(--radius-sm);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+}
+
+.guide-start-btn:hover {
+  background: var(--accent-strong);
+  color: #fff;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+}

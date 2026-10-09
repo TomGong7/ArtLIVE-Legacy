@@ -1,0 +1,411 @@
+.login-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 24px;
+}
+
+.login-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.login-back:hover {
+  color: var(--text);
+}
+
+.back-arrow {
+  font-size: 1.1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 36px 32px;
+  background: var(--surface-strong);
+  animation: fadeUp 0.5s ease-out;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.login-header .topbar-brand-mark {
+  margin: 0 auto 16px;
+}
+
+.login-header .title-lg {
+  margin-bottom: 6px;
+}
+
+.login-header .subtitle {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+
+/* ===== 选项卡 ===== */
+.login-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.login-tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text-soft);
+  cursor: pointer;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.login-tab.active {
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.login-tab:not(.active):hover {
+  background: rgba(139, 107, 82, 0.08);
+}
+
+/* ===== 登录表单 ===== */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeUp 0.35s ease-out;
+}
+
+.login-form.hidden {
+  display: none;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+}
+
+.password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrap .input {
+  padding-right: 44px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.password-toggle:hover {
+  opacity: 0.8;
+}
+
+.toggle-icon {
+  font-size: 1.1rem;
+}
+
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+}
+
+.form-link {
+  color: var(--accent);
+  font-size: 0.88rem;
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}
+
+/* ===== 步骤进度指示器 ===== */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 28px;
+  padding: 0 4px;
+}
+
+.step-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  background: var(--surface-strong);
+  border: 2px solid var(--line);
+  color: var(--text-soft);
+  transition: all 0.35s ease;
+}
+
+.step-dot.active .step-num {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+.step-dot.done .step-num {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.step-label {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  white-space: nowrap;
+  transition: color 0.35s ease;
+}
+
+.step-dot.active .step-label {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.step-dot.done .step-label {
+  color: var(--accent);
+}
+
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: var(--line);
+  margin: 0 4px;
+  margin-bottom: 28px;
+  transition: background 0.35s ease;
+}
+
+.step-line.done {
+  background: var(--accent);
+}
+
+/* ===== 步骤面板 ===== */
+.step-panels {
+  position: relative;
+  overflow: hidden;
+}
+
+.step-panel {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: stepSlideIn 0.4s ease-out;
+}
+
+.step-panel.active {
+  display: flex;
+}
+
+@keyframes stepSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes stepSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+.step-panel.slide-out {
+  animation: stepSlideOut 0.3s ease-in forwards;
+}
+
+.step-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-strong);
+  margin-bottom: 4px;
+}
+
+.step-desc {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.step-panel .form-group {
+  width: 100%;
+}
+
+.step-panel .form-options {
+  width: 100%;
+}
+
+.step-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* ===== 确认信息卡片 ===== */
+.review-card {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--glass-highlight);
+}
+
+.review-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.review-row + .review-row {
+  border-top: 1px solid var(--line);
+}
+
+.review-label {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.review-value {
+  font-size: 0.92rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ===== 表单内错误提示 ===== */
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(200, 50, 50, 0.08);
+  border: 1px solid rgba(200, 50, 50, 0.2);
+  border-radius: 8px;
+  color: #c44;
+  font-size: 0.82rem;
+  margin-bottom: 12px;
+  animation: errorShake 0.35s ease;
+}
+
+.form-error::before {
+  content: "⚠";
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.form-error.hidden {
+  display: none;
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 28px 20px;
+  }
+
+  .step-label {
+    font-size: 0.7rem;
+  }
+
+  .step-num {
+    width: 30px;
+    height: 30px;
+    font-size: 0.78rem;
+  }
+
+  .step-icon {
+    width: 52px;
+    height: 52px;
+  }
+}
